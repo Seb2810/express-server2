@@ -1,5 +1,6 @@
 
 ## &#127808; SERVER EXPRESS
+→Complete CRUD with Sequelize & MYSQL
 
 ##  &#128165; Front-end du projet :
 
