@@ -1,7 +1,15 @@
 
 ## SERVER EXPRESS
 
-## Demarrer avec :  node ./bin/www
+## Front-end du projet :
+
+https://github.com/Seb2810/angular-front2
+
+## Demarrer le server avec : 
+
+cd C:/express-server2
+
+node ./bin/www
  
 ## config du server
 
