@@ -12,7 +12,7 @@ cd C:/express-server2
 node ./bin/www
  
 ## config du server
-
+```js
 const express = require("express");
 require('dotenv').config();
 
@@ -39,8 +39,6 @@ app.use(cors({
     'http://localhost:4200'
     ]
 }));
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -79,13 +77,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
-
-## module.exports = app;
-
+ module.exports = app;
+```
 
 ##  auteur one to many
-
+```js
 'use strict';
 const {
   Model
@@ -121,10 +117,11 @@ Auteur.init(
 
   return Auteur;
 };
-
+```
  
 ##  roman one to many
 
+```js
 'use strict';
 const {
   Model
@@ -158,11 +155,12 @@ module.exports = (sequelize, DataTypes) => {
 
   return Roman;
 };
-
+```
 
 
 ##  migration pour ajouter le DELETE CASCADE
 
+```js
 'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
@@ -190,8 +188,9 @@ module.exports = {
     await queryInterface.removeConstraint('Romans', 'Romans_auteurId_fkey');
   }
 };
-
+```
 ##  auteurmany.controller
+
 
 const express = require("express");
 require('dotenv').config();
@@ -230,6 +229,8 @@ const {sequelize ,Roman, Auteur } = require('../models');
         }
 
     }
+
+
   
     exports.createManyTodos = async (req, res) => {
 
@@ -355,7 +356,7 @@ const {sequelize ,Roman, Auteur } = require('../models');
 
              }
 
-                 //------------------DELETE PARENT AND CHILD OF ONE TO MANY-------------------
+
 
              exports.deleteAllmanyTodos = async(req,res)=>{
 
@@ -390,8 +391,9 @@ const {sequelize ,Roman, Auteur } = require('../models');
              
              }
 
-            
-            auteurmany.route
+           
+
+            ## auteurmany.route
             
             const express = require('express');
             const router = express.Router();
