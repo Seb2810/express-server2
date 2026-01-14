@@ -1,7 +1,7 @@
 
 ## SERVER EXPRESS
 
-## Front-end du projet :
+## Front-end du projet : &#128165;
 
 https://github.com/Seb2810/angular-front2
 
