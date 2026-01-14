@@ -191,18 +191,11 @@ module.exports = {
 ```
 ##  auteurmany.controller
 
-
-const express = require("express");
-require('dotenv').config();
-
-//const { Sequelize,QueryTypes, Model, DataTypes } = require("sequelize");
+```js
 
 
 const {sequelize ,Roman, Auteur } = require('../models');
 
-//***************************************************************************************** */
-//************************************ONE TO MANY********************************* */
-//***************************************************************************************** */
 
     exports.getmanyTodos= async (req, res) => {
 
@@ -210,7 +203,7 @@ const {sequelize ,Roman, Auteur } = require('../models');
         const tasks2 = await Auteur.findAll({  include: [
         {
           model: Roman,
-          as: 'romans'   // 🔥 DOIT matcher User.hasOne(... as: 'book')
+          as: 'romans'  
         }
       ]
           });
@@ -219,7 +212,6 @@ const {sequelize ,Roman, Auteur } = require('../models');
         console.log(JSON.stringify(tasks2, null, 2));
       
         
-      
         res.json(tasks2);
       
         } catch (error) {
@@ -231,12 +223,11 @@ const {sequelize ,Roman, Auteur } = require('../models');
     }
 
 
-  
     exports.createManyTodos = async (req, res) => {
 
       const firstName = req.body.firstName;
       const lastName =req.body.lastName;
-      //this.userid =req.body.userId;
+     
       const booknamemany =req.body.name;
       console.log('firstName' ,   firstName );
       console.log('lastName' ,  lastName );
@@ -246,22 +237,20 @@ const {sequelize ,Roman, Auteur } = require('../models');
        {
          firstName: firstName ,
          lastName:  lastName,
-       //  createdAt: false,
-       //  updatedAt: false , 
+     , 
          romans: {
-           // you can specify the attributes of the associated model you want to create
+        
            name:  booknamemany,
-         //  createdAt: false,
-           //   updatedAt: false 
+       
            
          },
        },
        {
-         // you must specify which associated models must be created here
+       
          include: [
         {
           model: Roman,
-          as: 'romans'   // 🔥 roman matcher(... as: 'roman')
+          as: 'romans'  
         }
       ]
        },
@@ -310,7 +299,7 @@ const {sequelize ,Roman, Auteur } = require('../models');
                 roman.name = name;
                 await roman.save();
 
-                res.json(roman); // 🔥 retourne le roman mis à jour
+                res.json(roman); 
 
               } catch (error) {
                 console.error(error);
@@ -318,8 +307,6 @@ const {sequelize ,Roman, Auteur } = require('../models');
               }
             };
 
-
-             //------------------DELETE ONE VALUE CHILD OF ONE TO MANY-------------------
 
              exports.deleteOnemanyTodos = async(req,res)=>{
 
@@ -340,11 +327,11 @@ const {sequelize ,Roman, Auteur } = require('../models');
                   throw new Error('Roman not found');
                 }
 
-                await t.commit(); // ✅ tout est OK
+                await t.commit(); 
 
                 return res.json({ success: true, deleted });
               } catch (error) {
-                await t.rollback(); // 🔥 annule tout
+                await t.rollback(); 
                 console.error(error);
 
                 return res.status(500).json({
@@ -355,8 +342,6 @@ const {sequelize ,Roman, Auteur } = require('../models');
 
 
              }
-
-
 
              exports.deleteAllmanyTodos = async(req,res)=>{
 
@@ -390,10 +375,9 @@ const {sequelize ,Roman, Auteur } = require('../models');
               
              
              }
+        
 
-           
-
-            ## auteurmany.route
+         ## auteurmany.route
             
             const express = require('express');
             const router = express.Router();
@@ -421,3 +405,4 @@ const {sequelize ,Roman, Auteur } = require('../models');
 
 module.exports = router;
 
+   ```
