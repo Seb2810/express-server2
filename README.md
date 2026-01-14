@@ -194,7 +194,7 @@ module.exports = {
 ```js
 
 
-const {sequelize ,Roman, Auteur } = require('../models');
+    const {sequelize ,Roman, Auteur } = require('../models');
 
 
     exports.getmanyTodos= async (req, res) => {
@@ -251,15 +251,15 @@ const {sequelize ,Roman, Auteur } = require('../models');
         {
           model: Roman,
           as: 'romans'  
-        }
-      ]
-       },
-     );
+            }
+          ]
+           },
+          );
 
-        res.json({ name:  booknamemany , firstName : firstName  , lastName : lastName  });
-         }
+               res.json({ name:  booknamemany , firstName : firstName  , lastName : lastName  });
+              }
 
-         exports.createManyRoman = async (req, res) => {
+               exports.createManyRoman = async (req, res) => {
 
                   const booknamemany =req.body.nameval;
                   const idname =req.body.idval;
@@ -279,10 +279,10 @@ const {sequelize ,Roman, Auteur } = require('../models');
 
                 res.json(retour);
               
-         }
+                  }
 
 
-                    exports.updateRoman = async (req, res) => {
+             exports.updateRoman = async (req, res) => {
               try {
                 const { id, name } = req.body;
 
@@ -346,7 +346,7 @@ const {sequelize ,Roman, Auteur } = require('../models');
              exports.deleteAllmanyTodos = async(req,res)=>{
 
                     
-          const auteurId = req.params.id;
+            const auteurId = req.params.id;
             const t = await sequelize.transaction();
 
             try {
@@ -377,7 +377,7 @@ const {sequelize ,Roman, Auteur } = require('../models');
              }
         
 
-         ## auteurmany.route
+         auteurmany.route
             
             const express = require('express');
             const router = express.Router();
@@ -403,6 +403,6 @@ const {sequelize ,Roman, Auteur } = require('../models');
             // ✅ ENSUITE la plus courte
             router.delete('/delete/:id', deleteOnemanyTodos)
 
-module.exports = router;
+             module.exports = router;
 
    ```
